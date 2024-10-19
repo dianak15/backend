@@ -1,6 +1,4 @@
-
 const transcriptsRoutes = require('./routes/transcripts');
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -10,6 +8,12 @@ const mongoose = require('mongoose');
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+
+// Root route
+app.get('/', (req, res) => {
+    res.send('Welcome to the Transcripts API!'); // Or any message you want
+});
+
 app.use('/api/transcripts', transcriptsRoutes);
 
 // Connect to MongoDB (replace with your MongoDB connection string)
